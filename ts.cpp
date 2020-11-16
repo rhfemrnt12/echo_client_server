@@ -43,6 +43,10 @@ struct Param {
 				continue;
 			}
 		}
+		if(echo == true && broadcast == true){
+			cout << "[+] -e and -b option couldn't use together\n";
+			return 0;
+		}
 		port = stoi(argv[argc-1]);
 		return port != 0;
 	}
@@ -96,6 +100,10 @@ void recvThread(int sd) {
 
 int main(int argc, char* argv[]) {
 	if (!param.parse(argc, argv)) {
+		usage();
+		return -1;
+	}
+	else if(param.isoption == false && argc > 2){
 		usage();
 		return -1;
 	}
