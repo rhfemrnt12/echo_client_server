@@ -37,15 +37,11 @@ struct Param {
 				isoption = true;
 				continue;
 			}
-			else if (strcmp(argv[i], "-b") == 0) {
+			if (strcmp(argv[i], "-b") == 0) {
 				broadcast = true;
 				isoption = true;
 				continue;
 			}
-		}
-		if(echo == true && broadcast == true){
-			cout << "[+] -e and -b option couldn't use together\n";
-			return 0;
 		}
 		port = stoi(argv[argc-1]);
 		return port != 0;
