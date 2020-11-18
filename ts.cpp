@@ -77,7 +77,7 @@ void recvThread(int sd) {
 				break;
 			}
 		}
-		else if(param.broadcast){
+		if(param.broadcast){
 			cout << "\nbroadcast mode...\n";
 			for(auto i = clients.begin(); i != clients.end(); i++){
 				res = send(*i, buf, res, 0);
